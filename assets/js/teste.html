@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sem título</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="percurso.js"></script>
+<script>
+var canvas, stage, exportRoot;
+function init() {
+	// --- write your JS code here ---
+	
+	canvas = document.getElementById("canvas");
+	exportRoot = new lib.percurso();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+var mat = [
+	{pontos:0, class:".pt1", ativo: true},
+	{pontos:0, class:".pt2", ativo: true},
+	{pontos:0, class:".pt3", ativo: true},
+	{pontos:0, class:".pt4", ativo: false},
+	{pontos:0, class:".pt5", ativo: false},
+	{pontos:0, class:".pt6", ativo: false}
+];
+
+var part = {
+	
+	addPonto: function(c){
+		for(var i=0; i<6; i++){
+			if(mat[i].class == c){
+				$(c + '_bt').val(++mat[i].pontos)
+			}
+		}		
+	}
+	
+}
+
+</script>
+</head>
+
+<body bgcolor="#333333" onLoad="init();">
+<div style="position: fixed; z-index:210; right: 20px; top: 20px;" class="desktop">
+
+	<style>
+		label{ float: right; }
+		label input{ width: 20px; margin-bottom: 10px; text-align: center }
+	</style>
+    
+    <label>
+    	<button class="bt_part_0" onclick="part.addPonto('.pt2')" >Seta 0</button>
+        <input class="pt2_bt" value="0" type="text" />
+    </label><br>    
+	
+    <label>
+    	<button class="bt_part_1" onclick="part.addPonto('.pt3')" >Seta 1</button>
+        <input class="pt3_bt" value="0" type="text" />
+    </label><br>
+    
+    <label>
+    	<button class="bt_part_2" onclick="part.addPonto('.pt1')" >Seta 2</button>
+        <input class="pt1_bt" value="0" type="text" />
+    </label><br>
+    
+    <label>
+    	<button class="bt_part_3" onclick="part.addPonto('.pt4')" >Seta 3</button>
+        <input class="pt4_bt" value="0" type="text" />
+    </label><br>
+    <label>
+    	<button class="bt_part_4" onclick="part.addPonto('.pt5')" >Seta 4</button>
+        <input class="pt5_bt" value="0" type="text" />
+    </label><br>
+    <label>
+    	<button class="bt_part_5" onclick="part.addPonto('.pt6')" >Seta 5</button>
+        <input class="pt6_bt" value="0" type="text" />
+    </label>
+</div>
+<canvas id="canvas" width="1301" height="1674" ></canvas>
+</body>
+</html>

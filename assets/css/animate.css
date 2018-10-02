@@ -1,0 +1,139 @@
+@charset "utf-8";
+/* CSS Document */
+
+.animate{ transition: all .5s ease; }
+.animate.s1{ transition: all 1s ease; }
+.animate.s2{ transition: all 2s ease; }
+.animate.s3, .animate_no_init{ transition: all 3s ease; }
+.animate.s5{ transition: all 5s ease; }
+.slide{margin-top:-50px}
+.opacity{opacity:0}
+.opacity4{opacity:.4}
+.scale{transform:scale(0)}
+.pers_parent { perspective: 1000px; perspective-origin: left; }
+.pers_child { transform: rotateY(-50deg);   transform-origin: left; }
+
+
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes progress {
+    from {background-position: 0 0;}
+    to {background-position: 7px 0;}
+}
+
+@-webkit-keyframes progress {
+    from {background-position: 0 0;}
+    to {background-position: 7px 0;}
+}
+
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes orbita-1 {
+    from {width: 11%; left: 40%; z-index: 1}
+    to {width: 13%; left: 10%;  z-index: 1;}
+}
+
+@-webkit-keyframes orbita-2 {
+    from {width: 13%; left: 10%;  z-index: 1;}
+		to {width: 13%; left: 10%;  z-index: 50;}
+}
+
+@-webkit-keyframes orbita-3 {
+		from {width: 13%; left: 10%;  z-index: 50;}
+		to {width: 15%; left: 40%; z-index: 50}	
+}
+
+@-webkit-keyframes orbita-4 {
+		from {width: 15%; left: 40%; z-index: 50}	
+		to {width: 13%; left: 80%; z-index: 1}
+}
+
+@-webkit-keyframes orbita-5 {
+		from {width: 13%; left: 80%; z-index: 1}
+		to {width: 13%; left: 40%; z-index: 1}
+}
+
+/* Standard syntax */ 
+@keyframes orbita-1 {
+    from {width: 11%; left: 40%; z-index: 1}
+    to {width: 13%; left: 10%;  z-index: 1;}
+}
+
+@keyframes orbita-2 {
+    from {width: 13%; left: 10%;  z-index: 1;}
+		to {width: 13%; left: 10%;  z-index: 50;}
+}
+
+@keyframes orbita-3 {
+		from {width: 13%; left: 10%;  z-index: 50;}
+		to {width: 15%; left: 40%; z-index: 50}	
+}
+
+@keyframes orbita-4 {
+		from {width: 15%; left: 40%; z-index: 50}	
+		to {width: 13%; left: 80%; z-index: 1}
+}
+
+@keyframes orbita-5 {
+		from {width: 13%; left: 80%; z-index: 1}
+		to {width: 13%; left: 40%; z-index: 1}
+}
+
+
+/* Chrome, Safari, Opera */ 
+@-webkit-keyframes shake {   
+	0% {margin-left: 0px; transform: rotate(0deg);}	
+	70% {margin-left: 0px; transform: rotate(0deg);}	
+	75% {margin-left: 15px; transform: rotate(-15deg);}	
+	80% {margin-left: 0px; transform: rotate(0deg);}	
+	85% {margin-left: 15px; transform: rotate(-15deg);}	
+	90% {margin-left: 0px; transform: rotate(0deg);}	
+	95% {margin-left: 15px; transform: rotate(-15deg);}	
+	100% {margin-left: 0px; transform: rotate(0deg);}	
+} 
+
+/* Standard syntax */ 
+@keyframes shake {
+    0% {margin-left: 0px; transform: rotate(0deg);}	
+	70% {margin-left: 0px; transform: rotate(0deg);}	
+	75% {margin-left: 15px; transform: rotate(-15deg);}	
+	80% {margin-left: 0px; transform: rotate(0deg);}	
+	85% {margin-left: 15px; transform: rotate(-15deg);}	
+	90% {margin-left: 0px; transform: rotate(0deg);}	
+	95% {margin-left: 15px; transform: rotate(-15deg);}	
+	100% {margin-left: 0px; transform: rotate(0deg);}	
+}
+
+.movOrbita{
+	
+	animation:  orbita-1 1.75s ease-out 0s,
+				orbita-2 0.07s linear 1.75s,
+				orbita-3 1.68s ease-in 1.82s,
+				orbita-4 1.75s ease-out 3.5s,
+				orbita-5 1.75s ease-in 5.25s;
+	-webkit-animation:  orbita-1 1.75s ease-out 0s,
+						orbita-2 0.07s linear 1.75s,
+						orbita-3 1.68s ease-in 1.82s,
+						orbita-4 1.75s ease-out 3.5s,
+						orbita-5 1.75s ease-in 5.25s;
+}
+	
+
+.shake_hand{
+	-webkit-animation: shake 3s infinite; /* Chrome, Safari, Opera */
+    animation: shake 3s infinite;	
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+	transform-origin: center bottom;
+}
+
+.movProgress{
+	-webkit-animation: progress .5s infinite; /* Chrome, Safari, Opera */
+    animation: progress .5s infinite;	
+	-webkit-animation-timing-function: linear;
+	animation-timing-function: linear;
+}
+
+@media screen and (max-width: 950px){
+	
+	.scale{transform:scale(1); opacity:0}
+	
+}
